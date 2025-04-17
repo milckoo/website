@@ -1,0 +1,221 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fffbf3;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Main Container */
+.appintro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Left Content */
+.appintro-left-wrapper {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.appintro-fixed-heading {
+  position: sticky;
+  top: 40px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px 0;
+  z-index: 10;
+  margin-bottom: 20px;
+}
+
+.appintro-fixed-heading h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.appintro-fixed-heading h1 span {
+  color: orange;
+  display: block;
+}
+
+.appintro-scroll-container {
+  margin-top: 0;
+  height: calc(100vh - 160px);
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 20px;
+}
+
+.appintro-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.appintro-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appintro-section h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.appintro-section h1 span {
+  color: orange;
+  display: block;
+}
+
+.appintro-section p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Right Content */
+.appintro-right-content {
+  width: 44%;
+  background: url("/AppIntro/Image+Background.png") no-repeat center center;
+  background-size: contain;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 160px);
+  align-self: flex-start;
+  margin-left: auto;
+  z-index: 2;
+}
+
+.appintro-image-container {
+  position: relative;
+  width: 100%;
+  height: 601px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appintro-device-image {
+  max-width: 269px;
+  width: 100%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  opacity: 0;
+}
+
+.appintro-device-image.active {
+  opacity: 1;
+}
+
+/* Animation */
+.appintro-circle-animation {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 0.2) 0%,
+    rgba(255, 165, 0, 0) 70%
+  );
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.appintro-animate-circle {
+  animation: circleExpand 1s ease-out forwards;
+}
+
+@keyframes circleExpand {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .appintro-container {
+    flex-direction: column;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .appintro-fixed-heading {
+    position: relative;
+    top: auto;
+    padding: 0;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .appintro-fixed-heading h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .appintro-scroll-container {
+    display: none;
+  }
+
+  .appintro-right-content {
+    position: relative;
+    right: 2px;
+    top: -3px;
+    transform: none;
+    width: 255%;
+    margin: 20px 0 0;
+    padding: 0;
+    height: 500px;
+    min-height: 501px;
+    background-size: 40% auto;
+    background-position: center 30px;
+    align-self: center;
+  }
+
+  .appintro-image-container {
+    height: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .appintro-device-image {
+    max-width: 184px;
+    height: auto;
+    transform: scale(1.2);
+    transform-origin: center;
+  }
+
+  .appintro-circle-animation {
+    width: 150%;
+    height: 150%;
+  }
+}
