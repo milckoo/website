@@ -1,0 +1,152 @@
+.product-section {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(220, 238, 220, 0.4) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(220, 238, 220, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+}
+
+.text-content {
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  margin-bottom: 1.2rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.title span {
+  color: #ffa500;
+}
+
+.description {
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.6;
+}
+
+.notify-button {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(255, 165, 0, 0.2);
+}
+
+.notify-button:hover {
+  transform: scale(1.05);
+}
+
+.bell-icon {
+  font-size: 1.1rem;
+}
+
+.product-display {
+  margin-top: auto;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 55vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.product-display img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 1rem;
+    width: 100%;
+    height: 95vh;
+  }
+
+  .text-content {
+    margin-top: 1rem;
+  }
+
+  .product-display {
+    height: 45vh;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-display {
+    height: 40vh;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    padding: 0 0.8rem;
+  }
+
+  .notify-button {
+    padding: 0.6rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}

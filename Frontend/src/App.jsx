@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Footer from './Components/Footer';
 import GlobalLoader from './Components/GlobalLoader';
 import Navbar from './Components/Navbar';
-import AboutUs from './pages/AboutUs';
+import AboutUs from './Pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import FAQs from './pages/FAQs';
 import Home from './Pages/Home';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/trial-pack" element={<TrialPack />} />
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
+        <Footer />
       </Router>
     </GlobalLoader>
   );
